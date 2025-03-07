@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexuz-Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="star-background"></div>
+    <div class="hero-section">
+        <div class="logo">
+            <h1>NeXuz Game</h1>
+        </div>
+        <div class="welcome-text">
+            <h2>Selamat datang di NeXuz</h2>
+            <p>Rasakan pengalaman bermain game sambil belajar</p>
+        </div>
+        <div class="cta">
+            <a href="loading.html" class="start-btn">Mulai Game</a>
+        </div>
+    </div>
+    <footer>
+        <p>Nexuz-Game © 2024</p>
+    </footer>
+
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+
+@keyframes starAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.star-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+   background: url(bacground.png);
+    animation: starAnimation 60s linear infinite;
+    z-index: -1; 
+}
+
+
+.hero-section {
+    position: relative;
+    padding: 50px;
+    background-color: rgba(34, 34, 34, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in-out;
+    z-index: 1;
+}
+
+
+.logo h1 {
+    font-size: 50px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    animation: colorChange 3s infinite alternate, logoBounce 1s ease-in-out infinite;
+}
+
+
+@keyframes logoBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.welcome-text h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    animation: colorChange 4s infinite alternate;
+}
+
+.welcome-text p {
+    font-size: 18px;
+}
+
+
+@keyframes sparkleEffect {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.star-background::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    animation: sparkleEffect 2s ease-in-out infinite;
+}
+
+.cta .start-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, rgba(3, 227, 7, 0.8), rgba(8, 184, 219, 0.8), rgba(204, 27, 239, 0.8));
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta .start-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s;
+}
+
+.cta .start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.cta .start-btn:active::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.cta .start-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes colorChange {
+    0% {
+        color: #ff0000; 
+    }
+    25% {
+        color: #00ff00; 
+    }
+    50% {
+        color: #0000ff; 
+    }
+    75% {
+        color: #ff00ff;
+    }
+    100% {
+        color: #00ffff; 
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+    </style>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Pilih lah jawaban yang tepat di bawah ini !</h2>
+
+<form id="quizForm">
+    <!-- Soal 1 -->
+    <div class="question">
+        <p>1. Apa ibu kota Indonesia?</p>
+        <input type="radio" name="q1" value="0"> Surabaya <br>
+        <input type="radio" name="q1" value="10"> Jakarta <br>
+        <input type="radio" name="q1" value="0"> Bandung <br>
+    </div>
+
+    <!-- Soal 2 -->
+    <div class="question">
+        <p>2. Berapa jumlah pulau di Indonesia?</p>
+        <input type="radio" name="q2" value="10"> Lebih dari 17.000 <br>
+        <input type="radio" name="q2" value="0"> 10.000 <br>
+        <input type="radio" name="q2" value="0"> 5.000 <br>
+    </div>
+  
+    <div class="question">
+      <p>3. jika 10+40 berapa hasil nya ?</p>
+      <input type="radio" name="q3" value="10"> 50<br>
+      <input type="radio" name="q3" value="0"> 10 <br>
+      <input type="radio" name="q3" value="0"> 80 <br>
+  </div>
+
+  <div class="question">
+    <p>4. berapa hasil 20-5?</p>
+    <input type="radio" name="q4" value="10"> 15 <br>
+    <input type="radio" name="q4" value="0"> 10 <br>
+    <input type="radio" name="q4" value="0"> 17 <br>
+</div>
+
+    <button type="button" class="submit-btn" onclick="calculateScore()">Submit</button>
+</form>
+
+<div class="result" id="result"></div>
+
+<script src="game.js"></script>
+
+</body>
+</html>

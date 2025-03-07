@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexuz-Game</title>
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #0d0d0d; 
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #39ff14, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            z-index: -2;
+        }
+
+       
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to right, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 60px
+            ), repeating-linear-gradient(
+                to bottom, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 60px
+            );
+            z-index: -1;
+        }
+
+      
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        
+        .hasil-container {
+            background: rgba(20, 20, 20, 0.9); 
+            border: 2px solid #00ffd1;
+            border-radius: 10px;
+            box-shadow: 0 20px 26px rgba(247, 29, 29, 0.2);
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            color: #00ffd1;
+        }
+
+        
+        .hasil-container h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #00ffd1;
+            border-bottom: 2px solid #00ffd1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        
+        .skor {
+            font-size: 40px;
+            font-weight: bold;
+            color: #39ff14;
+            margin-bottom: 20px;
+        }
+
+        
+        .pesan-selamat {
+            font-size: 18px;
+            color: #00ffd1;
+            font-style: italic;
+        }
+
+       
+        .btn-ulang {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #39ff14;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-ulang:hover {
+            background-color: #00ffd1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="hasil-container">
+        <h2 class="rgb-text">Hasil Quiz Anda " <span id="username-display"></span>"</h2>
+        <p id="hasil" class="skor"></p>
+        <p id="selamat" class="pesan-selamat"></p> 
+        <a href="home.html" class="btn-ulang">Coba Lagi</a> 
+    </div>
+
+    <script>
+        function hitungSkor() {
+           
+            const username = localStorage.getItem('username') || 'Guest';
+            document.getElementById("username-display").textContent = username;
+
+      
+            const jawaban1 = parseInt(localStorage.getItem('q1')) || 0;
+            const jawaban2 = parseInt(localStorage.getItem('q2')) || 0;
+            const jawaban3 = parseInt(localStorage.getItem('q3')) || 0;
+            const jawaban4 = parseInt(localStorage.getItem('q4')) || 0;
+            const jawaban5 = parseInt(localStorage.getItem('q5')) || 0;
+            const jawaban6 = parseInt(localStorage.getItem('q6')) || 0;
+            const jawaban7 = parseInt(localStorage.getItem('q7')) || 0;
+            const jawaban8 = parseInt(localStorage.getItem('q8')) || 0;
+            const jawaban9 = parseInt(localStorage.getItem('q9')) || 0;
+            const jawaban10 = parseInt(localStorage.getItem('q10')) || 0;
+
+          
+            const skor = jawaban1 + jawaban2 + jawaban3 + jawaban4 + jawaban5 + jawaban6 + jawaban7 + jawaban8 + jawaban9 + jawaban10;
+
+            document.getElementById("hasil").innerText = `Skor Anda: ${skor}`;
+
+           
+            if (skor >= 90) {
+                document.getElementById("selamat").innerText = "Selamat atas skor sempurna Anda, jangan sombong dan tetap rendah hati";
+            } else if (skor >= 70) {
+                document.getElementById("selamat").innerText = "Bersyukur atas apa yang dimiliki, perbaiki kesalahan yang terjadi.";
+            } else {
+                document.getElementById("selamat").innerText = "Jika kamu tidak sanggup menahan lelahnya belajar ma ka kamu harus sanggup menahan perihnya kebodohan.";
+            }
+
+         
+            localStorage.removeItem('q1');
+            localStorage.removeItem('q2');
+            localStorage.removeItem('q3');
+            localStorage.removeItem('q4');
+            localStorage.removeItem('q5');
+            localStorage.removeItem('q6');
+            localStorage.removeItem('q7');
+            localStorage.removeItem('q8');
+            localStorage.removeItem('q9');
+            localStorage.removeItem('q10');
+        }   
+
+      
+        window.onload = hitungSkor;
+    </script>
+</body>
+</html>

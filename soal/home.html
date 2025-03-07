@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexuz-Game</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #000;
+        overflow: hidden;
+        color: #ffffff;
+    }
+
+   
+    .planet {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #6EC1E4, #8A2BE2);
+        animation: float 8s infinite ease-in-out alternate;
+        transition: transform 0.3s ease, background 0.3s ease;
+        box-shadow: 0 0 20px #6EC1E4, 0 0 30px #8A2BE2;
+    }
+
+    .planet:hover {
+        transform: scale(1.2);
+        background: linear-gradient(45deg, #FFD700, #FF4500);
+        box-shadow: 0 0 30px #FFD700, 0 0 50px #FF4500;
+    }
+
+    @keyframes float {
+        from { transform: translateY(0); }
+        to { transform: translateY(-15px); }
+    }
+
+    
+    .header {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        box-shadow: 0 0 15px #00ffcc;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #00ffcc;
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px; 
+    }
+
+    .nav-link {
+        color: #00ffcc;
+        font-size: 18px;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 2px solid #00ffcc;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 5px #00ffcc, 0 0 15px #00ffcc;
+    }
+
+    .nav-link:hover {
+        color: #ffffff;
+        background-color: #00ffcc;
+        box-shadow: 0 0 10px #00ffcc, 0 0 25px #00ffcc;
+    }
+
+    .content {
+        margin-top: 100px;
+        padding-top: 50px;
+    }
+
+    .content h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 50px;
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    }
+
+    .number-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        justify-items: center;
+        padding: 0 20px;
+    }
+
+    .number-box {
+        background-color: rgba(110, 193, 228, 0.9);
+        color: white;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 36px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: transform 0.3s;
+        box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    }
+
+    .number-box:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px #00ffcc, 0 0 25px #00ffcc;
+    }
+
+    .footer {
+        background-color: rgba(53, 52, 52, 0.7);
+        color: #000;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: white;
+    }
+
+    .planet-1 {
+        width: 120px;
+        height: 120px;
+        top: 20%;
+        left: 15%;
+    }
+    .planet-2 {
+        width: 80px;
+        height: 80px;
+        top: 30%;
+        left: 75%;
+    }
+    .planet-3 {
+        width: 100px;
+        height: 100px;
+        top: 60%;
+        left: 30%;
+        background: linear-gradient(45deg, #FFD700, #FF4500);
+    }
+    .planet-4 {
+        width: 70px;
+        height: 70px;
+        top: 80%;
+        left: 85%;
+        background: linear-gradient(45deg, #00ffcc, #0000ff);
+    }
+    .planet-5 {
+        width: 50px;
+        height: 50px;
+        top: 10%;
+        left: 65%;
+        background: linear-gradient(45deg, #ff00ff, #ff1493);
+    }
+    .rgb-text {
+        font-weight: bold;
+        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+        background-size: 400%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: rainbow 3s linear infinite;
+    }
+
+    @keyframes rainbow {
+        0% { background-position: 0%; }
+        100% { background-position: 100%; }
+    }
+    
+    
+</style>
+
+
+<div class="planet planet-1"></div>
+<div class="planet planet-2"></div>
+<div class="planet planet-3"></div>
+<div class="planet planet-4"></div>
+<div class="planet planet-5"></div>
+
+<div class="header">
+    <h1>NeXuz</h1>
+    <div class="nav-links">
+        <a href="beranda.html" class="nav-link">Back</a>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <h2>Soal sqifah pilihan ganda</h2>
+    <div class="number-container">
+        <a href="soalH1.html" class="number-box">1</a>
+        <a href="soalH2.html" class="number-box">2</a>
+        <a href="soalH3.html" class="number-box">3</a>
+        <a href="soalH4.html" class="number-box">4</a>
+        <a href="soalH5.html" class="number-box">5</a>  
+        <a href="soalH6.html" class="number-box">6</a>
+        <a href="soalH7.html" class="number-box">7</a>
+        <a href="soalH8.html" class="number-box">8</a>
+        <a href="soalH9.html" class="number-box">9</a>
+        <a href="soalH10.html" class="number-box">10</a>
+    </div>
+</div>
+<div class="welcome-container">
+    <h1 class="rgb-text">Welcome, <span id="username-display" class="rgb-text"></span></h1>
+   
+</div>
+<div class="footer">
+    Nexuz-COMMUNITY 2024
+</div>
+    <script>
+        const username = localStorage.getItem('username');
+        document.getElementById('username-display').textContent = username || 'Guest';
+    </script>
+</body>
+</html>

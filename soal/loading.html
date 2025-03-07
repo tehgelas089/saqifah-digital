@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #00ffcc;
+        }
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3), 0 0 30px rgba(0, 255, 204, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            outline: none;
+            color: #00ffcc;
+            background-color: #333333;
+            border-radius: 4px;
+            box-shadow: inset 0 0 5px rgba(0, 255, 204, 0.2), inset 0 0 10px rgba(0, 255, 204, 0.3);
+        }
+        .login-container input[type="text"]::placeholder,
+        .login-container input[type="password"]::placeholder {
+            color: #00ffcc;
+            opacity: 0.8;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00ffcc;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: #00e6b3;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        }
+        .error {
+            color: #ff4d4d;
+            margin-top: 10px;
+            text-shadow: 0 0 5px #ff4d4d;
+        }
+
+       
+          body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+        }
+        .conten{
+            font-size: 10px;
+            width: 40em;
+            height: 40em;
+            position: relative;
+        }
+        .sun{
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 3em white;
+        }
+        .earth,.moon{
+            position: absolute;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .earth{
+            top: 5em;
+            left: 5em;
+            width: 30em;
+            height: 30em;
+            animation: orbit 36.5s linear infinite;
+        }
+        .moon{
+            top: 0;
+            right: 0;
+            width: 8em;
+            height: 8em;
+            animation: orbit 2.7s linear infinite;
+        }
+        .earth::before,
+        .moon::before{
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+        .earth::before{
+            top: 2.8em;
+            right: 2.8em;
+            width: 3em;
+            height: 3em;
+            background-color: aqua;
+
+        }
+        .moon::before{
+          top: 0.8em;
+          right: 0.2em;
+          width: 1.2em;
+          height: 1.2em;
+          background-color: silver;
+        }
+        @keyframes orbit{
+          to{
+            transform: rotate(360deg);
+          }
+          
+        }
+        </style>
+</head>
+<body>
+  <div class="conten">
+  <div class="sun"></div>
+  <div class="earth">
+  <div class="moon"></div>
+  </div>
+  </div>
+  
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p class="error" id="error-message"></p>
+</div>
+
+<script>
+ function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        if (password === 'saqifah') {
+           
+            localStorage.setItem('username', username);
+        
+            window.location.href = 'home.html';
+        } else {
+            errorMessage.textContent = 'Password salah';
+        }
+    }
+</script>no
+
+</body>
+</html>
